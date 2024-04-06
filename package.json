@@ -1,7 +1,5 @@
 {
   "devDependencies": {
-    "@types/chrome": "^0.0.263",
-    "prisma": "^5.12.1",
     "typescript": "^5.4.4"
   },
   "name": "wordlaps",
@@ -15,7 +13,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@prisma/client": "^5.12.1",
     "@types/node": "^20.12.5",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7",
