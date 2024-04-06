@@ -1,10 +1,12 @@
 import { PrismaClient } from '@prisma/client'
+import { writeFileSync } from 'fs'
 
 const prisma = new PrismaClient()
 
 async function main() {
-  const allExamples = await prisma.example.findMany()
-  console.log(allExamples)
+  const urls = await prisma.url.findMany()
+
+  await writeFileSync('./dist/db.json', JSON.stringify(urls))
 }
 
 main()
