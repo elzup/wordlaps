@@ -9,16 +9,18 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
 model Url {
-  id              Int      @id @default(autoincrement()) // SQLite の autoincrement を想定
-  url             String
+  id              Int     @id @default(autoincrement()) // SQLite の autoincrement を想定
+  url             String?
   title           String?
   visit_count     Int
-  last_visit_time DateTime @map("last_visit_time")
+  typed_count     Int
+  last_visit_time String
+  hidden          Int
 
   @@map("urls")
 }
