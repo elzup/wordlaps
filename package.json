@@ -12,5 +12,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@types/node": "^20.12.5",
+    "sqlite3": "^5.1.7",
+    "ts-node": "^10.9.2"
+  }
 }
