@@ -1,2 +1,11 @@
-db/
-node_modules
+/db/
+
+/prisma/migrations/
+/prisma/dev.db
+*.db-journal
+
+# Node.js
+/node_modules/
+/.env
+/dist/
+/build/
