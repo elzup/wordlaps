@@ -7,7 +7,7 @@ type RawUrl = {
   title: string
   visit_count: number
   typed_count: number
-  last_visit_time: string
+  last_visit_time: number
   hidden: number
 }
 export type Url = Omit<RawUrl, 'last_visit_time'> & {
@@ -26,14 +26,12 @@ const isRawUrl = (url: any): url is RawUrl => {
   )
 }
 
-const webkittimeToUnix = (wkTs: bigint) => {
-  const webkitTimestamp = wkTs
-  return Number(webkitTimestamp - BigInt('11644473600000000')) / 1000
+const webkittimeToUnix = (wkTs: number) => {
+  return Number(wkTs - 11644473600000000) / 1000
 }
 
 const convertUrl = (url: RawUrl): Url => {
-  const webkitTimestamp = BigInt(url.last_visit_time)
-  const date = new Date(webkittimeToUnix(webkitTimestamp))
+  const date = new Date(webkittimeToUnix(url.last_visit_time))
   return { ...url, last_visit_time: date }
 }
 
